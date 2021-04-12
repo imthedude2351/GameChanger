@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.urls import reverse
+
 # Create your models here.
 class Game(models.Model):
     name = models.CharField(max_length=150)
@@ -9,6 +11,13 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'game_id': self.id})
+
 # class Game: 
 #     def __init__(self, name, developer, rating, year):
 #         self.name = name
