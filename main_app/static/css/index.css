@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     flex-direction: column;
     font-family: "Spectral SC";
@@ -23,6 +24,7 @@ body {
 
 .mainContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -36,4 +38,8 @@ body {
   height: 400px;
   max-width: 400px;
   background: rgba(255,255,255, 0.85);
+}
+
+h1 {
+    color: white !important;
 }
