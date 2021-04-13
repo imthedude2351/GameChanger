@@ -5,7 +5,7 @@
   <div class="card-content">
     <span class="card-title">{{ game.name }}</span>
     <p>Developer: {{ game.developer }}</p>
-    <p>Rating: {{ game.rating }}</p>
+    <p>Rated: {{ game.rated }}</p>
     <p>Year: {{ game.year }}</p>
     <p>Description</p>
   </div>
@@ -13,5 +13,32 @@
     <a href="{% url 'games_update' game.id %}">Edit</a>
     <a href="{% url 'games_delete' game.id %}">Delete</a>
   </div>
+
+  <div class="col s6">
+    <!-- new code below -->
+    <form method="post" action="{% url 'reviews_create' game.id %}">
+      {% csrf_token %}
+      {{ review_form.as_p }}
+      <input type="submit" class="btn" value="Add Review">
+    </form>
+  </div>
+  {% if game.review_set.all %}
+    <div class="col s6">
+      <table class="striped">
+        <thead>
+          <tr><th>Reviews</th></tr>
+        </thead>
+        <tbody>
+          {% for review in game.review_set.all %}
+            <tr>
+              <td>{{review.text}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+
 </div>
 {% endblock %}
