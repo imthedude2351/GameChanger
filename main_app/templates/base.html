@@ -15,9 +15,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Spectral+SC&display=swap" rel="stylesheet">
-
-
-  </head>
+    </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="{% url 'home' %}">Game Changer</a>
@@ -59,9 +57,9 @@
           </li>
         </ul>
       </div>
-    </nav>
-
-    <main class="container">{% block content %} {% endblock %}</main>
+</nav>
+    {% block content %} 
+    {% endblock %}
     <footer class="page-footer">
       <div class="right">
         All Rights Reserved, &copy; 2021 Game Changer &nbsp;
