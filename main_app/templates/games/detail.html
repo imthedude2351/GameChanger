@@ -26,12 +26,14 @@
     <div class="col s6">
       <table class="striped">
         <thead>
-          <tr><th>Reviews</th></tr>
+          <tr><th>Posted</th><th>Reviews</th><th>Rating</th></tr>
         </thead>
         <tbody>
           {% for review in game.review_set.all %}
             <tr>
+              <!-- <td>{{review.date}}</td> -->
               <td>{{review.text}}</td>
+              <td>{{review.rating}}</td>
             </tr>
           {% endfor %}
         </tbody>
