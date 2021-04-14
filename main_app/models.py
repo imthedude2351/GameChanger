@@ -35,7 +35,7 @@ class Review(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.review}"
+        return f"{self.review} {self.rating}"
 
     class Meta:
         ordering = ['-id']
