@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex-direction: column;
+    font-family: "Spectral SC";
+    background: url("https://i.imgur.com/00TQdeu.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  padding: 15px;
+  background:rgba(255,255,255, 0.85);
+  border-radius: 20px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.box {
+  background-color: white;
+  background:rgba(255,255,255, 0.85);
+  border-radius: 20px;
+}
+
+
+main {
+    flex: 1 0 auto;
+}
+  
+footer.page-footer {
+padding-top: 0;
+text-align: right;
+}
+  
+.btn {
+  background-color: #1874CD	;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card {
+  border-radius: 20px;
+    display: flex;
+    background: rgba(255,255,255, 0.85) !important
+}
+
+.comments {
+  display: flex;
+  flex-direction: row;
+}
+
+.whiteBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border-radius: 20px;
+  height: 400px;
+  max-width: 400px;
+  background: rgba(255,255,255, 0.85);
+}
+
+h1 {
+    color: white !important;
+}

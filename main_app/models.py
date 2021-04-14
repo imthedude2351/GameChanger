@@ -25,7 +25,8 @@ class Game(models.Model):
 
 
 class Review(models.Model):
-    review = models.TextField(max_length=500)
+    review = models.TextField(
+        max_length=500)
     rating = models.CharField(
         max_length=1,
         choices=RATINGS,
