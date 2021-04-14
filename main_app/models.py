@@ -1,6 +1,14 @@
 from django.db import models
 from django.urls import reverse
 
+RATINGS = (
+    ('1', '1'),
+    ('2', '2'),
+    ('3', '3'),
+    ('4', '4'),
+    ('5', '5'),
+)
+
 # Create your models here.
 class Game(models.Model):
     name        = models.CharField(max_length=150)
@@ -18,7 +26,11 @@ class Game(models.Model):
 
 class Review(models.Model):
     review = models.TextField(max_length=500)
-    # rating = models.IntegerField()
+    rating = models.CharField(
+        max_length=1,
+        choices=RATINGS,
+        default=RATINGS[-1][-1]
+    )
 
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
