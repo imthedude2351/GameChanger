@@ -13,6 +13,25 @@ h1 {
   text-align: center;
 }
 
+#id_review {
+  background: rgba(0,0,0,.2);
+  border-radius: 10px;
+  resize: none;
+}
+#id_review:focus {
+  outline: 0;
+}
+#id_rating {
+  border-radius: 10px;
+  vertical-align: auto;
+  text-align-last: center;
+  margin: 0 10px;
+  width: 5em;
+}
+.ratingNumber {
+  text-align: center;
+}
+
 form {
   padding: 15px;
   background:rgba(255,255,255, 0.85);
@@ -31,6 +50,7 @@ form {
   background-color: white;
   background:rgba(255,255,255, 0.85);
   border-radius: 20px;
+  overflow: scroll;
 }
 
 
@@ -64,6 +84,7 @@ text-align: right;
 .comments {
   display: flex;
   flex-direction: row;
+  height: 227px;
 }
 
 .whiteBox {

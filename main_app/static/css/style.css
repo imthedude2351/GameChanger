@@ -37,3 +37,11 @@ body {
   max-width: 400px;
   background: rgba(255,255,255, 0.85);
 }
+
+.emailPassword {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start !important;
+  font-size:13px;
+}

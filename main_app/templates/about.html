@@ -1,8 +1,47 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>About Game Changer</h1>
-<hr>
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+
+<main>
+    <h1>About Us</h1>
+    <hr>
+    
+    <div class="aboutUs container">
+        <div class="card">
+            <img class="card-img-top" src="https://ca.slack-edge.com/T0351JZQ0-U01MJALTRFV-d2cd07a2b6f1-512" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Xavier - Project Manager</h5>
+              <p class="card-text">Spearheaded the Game Changer project, leading the team to greatness and working tirelessly to make sure our merges don't conflict. </p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="https://ca.slack-edge.com/T0351JZQ0-U01L14TAHEV-e49174ddfedb-512" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Erwin - Lead Designer</h5>
+                <p class="card-text">The man behind the scenes - working on the flow and design of Game Changer. Some call him the myth, others call him a legend. But he calls himself an ordinary dude. </p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="https://ca.slack-edge.com/T0351JZQ0-U01NL6W49U0-fcf97ce4772d-512" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Khawar - Lead Programmer</h5>
+                <p class="card-text">Adding functionality has never been harder. Luckily Khawar was there to implement the ideas and make the magic flow! Count on him if you want your project to work!</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="https://ca.slack-edge.com/T0351JZQ0-U01NGA0349Y-ec553ce23385-512" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Urian - Programmer + Idea Structure</h5>
+                <p class="card-text">Fundamental to the team was Urian - providing insights to what could be or what shouldn't. Everyone can learn something from our programmer!</p>
+            </div>
+        </div>
+
+
+    </div>
+
+</main>
 
 
 {% endblock %}

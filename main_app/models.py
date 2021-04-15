@@ -11,10 +11,10 @@ RATINGS = (
 
 # Create your models here.
 class Game(models.Model):
-    name        = models.CharField(max_length=150)
-    developer   = models.CharField(max_length=200)
-    rated      = models.CharField(max_length=5)
-    year        = models.IntegerField()
+    name = models.CharField(max_length=150)
+    developer = models.CharField(max_length=200)
+    rated = models.CharField(max_length=5)
+    year = models.IntegerField()
 
     def __str__(self):
         return self.name
