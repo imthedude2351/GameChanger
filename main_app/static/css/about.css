@@ -41,9 +41,26 @@ body {
 }
 
 h1 {
+  text-align: center;
     color: white !important;
 }
 
 .card{
+  margin: 0 20px;
+  width: 50em;
   border-radius: 20px;
+  transition: 1s;
+}
+.card:hover {
+  background-color: rgba(0,0,0, 0.8);
+  box-shadow: 0px 0px 15px 15px red;
+}
+.card:hover + .card-img-top {
+  background: white;
+}
+
+.aboutUs {
+  display: flex;
+  margin: 0 auto;
+
 }
