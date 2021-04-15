@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from django.contrib.auth.models import User
+
 RATINGS = (
     ('1', '1'),
     ('2', '2'),
@@ -15,6 +17,7 @@ class Game(models.Model):
     developer = models.CharField(max_length=200)
     rated = models.CharField(max_length=5)
     year = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
