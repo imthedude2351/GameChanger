@@ -33,6 +33,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'index' %}"
               >All Games<span class="sr-only"></span></a>
@@ -50,11 +51,16 @@
 
         <ul class="navbar-nav my-2 my-lg-0 mr-sm-2">
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign In</a>
+            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Register</a>
+            <a class="nav-link" href="{% url 'login' %}">Log In</a>
           </li>
+          {% endif %}
         </ul>
       </div>
 </nav>
