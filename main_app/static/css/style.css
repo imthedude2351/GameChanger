@@ -45,3 +45,7 @@ body {
   text-align: start !important;
   font-size:13px;
 }
+
+.gameTitle {
+  color: black;
+}

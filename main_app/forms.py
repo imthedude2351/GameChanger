@@ -3,7 +3,6 @@ from django import forms
 from .models import Review
 
 class ReviewForm(ModelForm):
-    # review = forms.CharField(widget=forms.Textarea, label='')
     class Meta: 
         model = Review
         widgets = {

@@ -8,6 +8,7 @@ from .models import Game
 from .forms import ReviewForm
 
 # Create your views here.
+# @login_required
 def home(request):
   return render(request, 'home.html')
 
