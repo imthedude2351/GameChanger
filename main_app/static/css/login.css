@@ -1,0 +1,12 @@
+.fieldWrapper {
+    margin: 20px auto;
+}
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.helptext {
+    color: rgba(0,0,0,.4);
+    font-size: 12px;
+}
