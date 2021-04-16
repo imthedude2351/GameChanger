@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Game
+from .models import Game, Favorite
 from .forms import ReviewForm
 
 # Create your views here.
@@ -57,6 +57,24 @@ def reviews_create(request, game_id):
     new_review.save()
   return redirect('detail', game_id = game_id)
 
+@login_required
+def favorite_index(request):
+    favs = request.user.favorite_set.all()
+    return render(request, 'games/favorite.html', { 'favs' : favs }) 
+
+@login_required
+def favorite_create(request, game_id):
+    favs = request.user.favorite_set.all()
+    for fav in favs:
+        if (game_id == fav.__dict__['game_id']):
+            print('same')
+            return redirect('favorite_index')
+    else:
+        instance = Favorite()
+        instance.game_id = game_id
+        instance.user = request.user
+        instance.save()
+        return redirect('detail', game_id = game_id)
 
 def signup(request):
   error_message = ''
