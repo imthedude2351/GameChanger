@@ -44,3 +44,10 @@ class Review(models.Model):
     class Meta:
         ordering = ['-id']
 
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now=True)
+
+    def __str__(self): 
+        return f"{self.game_id}"
