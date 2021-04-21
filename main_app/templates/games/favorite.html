@@ -23,7 +23,7 @@
                   <p class="text card-text"> Rated: {{ fav.game.rated }}</p>
                   <p class="text card-text"> Year: {{ fav.game.year }}</p>
                 </a>
-                <a class="btn btn-dark mt-3" href="#">Delete</a>
+                <a class="btn btn-dark mt-3" href="{% url 'favorite_create' fav.game.id %}">Delete</a>
               </div>
             </div>
             {% endfor %}
