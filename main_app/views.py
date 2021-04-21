@@ -6,6 +6,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Game, Favorite
 from .forms import ReviewForm
+import requests
+
+
+
 
 # Create your views here.
 # @login_required
@@ -27,13 +31,25 @@ def games_detail(request, game_id):
     return render(request, 'games/detail.html', { 'game': game, 'review_form': review_form })
 
 
+def search(request):
+  search_term = request.POST.get('search_input')
+  url = f"https://api.rawg.io/api/games?key=87dba13a6af3467581a4dc49007ba4d4&search={search_term}"
+  r = requests.get(url).json()
+  return render(request, 'games/api.html', {'data' : r['results'] })
+
+
+def search_view(request):
+  return render(request, 'games/search.html')
+
+
 
 class GameCreate(LoginRequiredMixin, CreateView):
   model = Game
-  fields = '__all__'
+  fields = ['name', 'developer', 'rated', 'year']
 
   def form_valid(self, form):
   # Assign the logged in user (self.request.user)
+    print(form)
     form.instance.user = self.request.user  # form.instance is the cat
     # Let the CreateView do its job as usual
     return super().form_valid(form)
@@ -47,6 +63,12 @@ class GameUpdate(LoginRequiredMixin, UpdateView):
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
   success_url = '/games/'
+
+
+class FavDelete(LoginRequiredMixin, DeleteView):
+  model = Favorite
+  success_url = '/games/favorite'
+
 
 @login_required
 def reviews_create(request, game_id):

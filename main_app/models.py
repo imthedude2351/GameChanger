@@ -15,9 +15,10 @@ RATINGS = (
 class Game(models.Model):
     name = models.CharField(max_length=150)
     developer = models.CharField(max_length=200)
-    rated = models.CharField(max_length=5)
+    rated = models.CharField(max_length=10)
     year = models.IntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # img_url = models.CharField(max_length=300)
 
     def __str__(self):
         return self.name
