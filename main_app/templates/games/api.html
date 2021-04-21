@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+ {% load static %} 
+ {% block content %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+
+<strong>Search for games</strong>
+{% for i in data%}
+<main  class="mainContainer container">
+  <div style="background-image: url({{i.background_image}});
+   background-size: contain;  " class="w-50 p-3 whiteBox container">
+    <h1>Search a Game</h1>
+    <br />
+    <!-- Leaving the action empty makes the form post to the same url used to display it -->
+    <form action="{% url 'games_create' %}" method="post">
+      <!-- Django requires the following for security purposes -->
+      {% csrf_token %}
+      <table>
+        <!-- Render the inputs inside of <tr>s & <td>s -->
+        <tbody>
+          <tr>
+            <th><label for="id_name">Name:</label></th>
+            <td>
+              <input
+                type="text"
+                name="name"
+                maxlength="150"
+                required
+                value="{{i.name}}"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="id_developer">Developer:</label></th>
+            <td>
+              <input
+                type="text"
+                name="developer"
+                maxlength="200"
+                required
+                
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="id_rated">Rated:</label></th>
+            <td>
+              <input
+                type="text"
+                name="rated"
+                maxlength="5"
+                required
+                value="{{i.esrb_rating.name}}"
+                
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="id_year">Year:</label></th>
+            <td>
+              <input type="number" name="year" required value="{{i.released|slice:":4"}}" />
+            </td>
+          </tr>
+          <tr>
+          
+            <td>
+              <input type="hidden" value="{{i.background_image}}"  name="image" />
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+      <br />
+      <input type="submit" value="Submit!" class="btn" />
+      
+    </form>
+  </div>
+</main>
+
+{%endfor%} {% endblock %}
