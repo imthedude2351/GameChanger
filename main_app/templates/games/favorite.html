@@ -1,25 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1>Favorite Games</h1>
 
-{% for fav in favs %}
-    <div class="p-3 w-75 mb-5 card">
-        <div class="card-content">
-        <span class="card-title">{{ fav.game.name }}</span>
-        <p>Developer: {{ fav.game.developer }}</p>
-        <p>Rated: {{ fav.game.rated }}</p>
-        <p>Year: {{ fav.game.year }}</p>
-        <p class="mb-0">Description</p>
-        </div>
-        <hr>
-        <div class="card-action">
-        </div>
-        <div class=“card-action”>
-            <a class="btn btn-dark" href="{% url 'favorite_create' fav.game.id %}">Delete</a>
-          </div>
-        </div>
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+
+
+<div class="container gamelist-group">
+  <h1>Favorite Games</h1>
+
+  <main class="mainContainer container">
+    <div class="tablesc">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+
+            {% for fav in favs %}
+            <div class="card w-75 mb-3">
+              <div class="card-body">
+                <a href="{% url 'detail' fav.game.id %}">
+                  <h5 class="text card-title">{{ fav.game.name }}</h5>
+                  <p class="text card-text"> Developer: {{ fav.game.developer }}</p>
+                  <p class="text card-text"> Rated: {{ fav.game.rated }}</p>
+                  <p class="text card-text"> Year: {{ fav.game.year }}</p>
+                </a>
+                <a class="btn btn-dark mt-3" href="{% url 'favorite_create' fav.game.id %}">Delete</a>
+              </div>
+            </div>
+            {% endfor %}
+            </tbody>
+      </table>
     </div>
-{% endfor %}
-
-  {% endblock %}
+</div>
+</main>
+{% endblock %}
