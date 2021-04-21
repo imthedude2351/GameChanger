@@ -89,7 +89,7 @@ def favorite_create(request, game_id):
     favs = request.user.favorite_set.all()
     for fav in favs:
         if (game_id == fav.__dict__['game_id']):
-            print('same')
+            fav.delete()
             return redirect('favorite_index')
     else:
         instance = Favorite()

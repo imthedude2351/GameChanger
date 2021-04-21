@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
@@ -7,19 +6,30 @@
 
 
 
-<h1>Game List</h1>
-<main class="mainContainer container">
-  {% for game in games %}
-  <div class="card w-75 mb-3">
-    <div class="card-body">
-      <a href="{% url 'detail' game.id %}">
-        <h5 class="text card-title">{{ game.name }}</h5>
-        <p class="text card-text">Developer: {{ game.developer }} </p>
-        <p class="text card-text">Rated: {{ game.rated }}  |  Year: {{ game.year }}</p>
-      </a>
+<div class="container gamelist-group">
+  <h1>Game List</h1>
+
+  <main class="mainContainer container">
+    <div class="tablesc">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+
+            {% for game in games %}
+            <div class="card w-75 mb-3">
+              <div class="card-body">
+                <a href="{% url 'detail' game.id %}">
+                  <h5 class="text card-title">{{ game.name }}</h5>
+                  <p class="text card-text">Developer: {{ game.developer }} </p>
+                  <p class="text card-text">Rated: {{ game.rated }} | Year: {{ game.year }}</p>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+            </tbody>
+      </table>
     </div>
-  </div>
-  {% endfor %}
+</div>
 </main>
 
 {% endblock %}
