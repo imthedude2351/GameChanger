@@ -6,6 +6,7 @@ body {
     background: url("https://i.imgur.com/00TQdeu.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
   }
   
   main {
@@ -48,4 +49,16 @@ body {
 
 .gameTitle {
   color: black;
+}
+
+.gamelist-group > .row {
+  display: block;
+  overflow: scroll;
+  white-space: nowrap;
+}
+
+.tablesc {
+  overflow:scroll;
+  height:750px;
+  width:500px;
 }
