@@ -44,15 +44,20 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'games_create' %}">Add a Game</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'search' %}">Search a Game</a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About Us</a>
           </li>
         </ul>
 
         <ul class="navbar-nav my-2 my-lg-0 mr-sm-2">
+          <li class="nav-item">
+            <form class="form-inline" method="POST" action="{% url 'searchapi' %}">
+              {% csrf_token %}
+              <input class="form-control mr-sm-2" name="search_input" type="text" placeholder="Search for Games">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
           </li>
