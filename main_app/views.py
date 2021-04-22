@@ -4,15 +4,12 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Game, Favorite
+from .models import Game, Favorite, Review
 from .forms import ReviewForm
 import requests
+from django.urls import  reverse_lazy, reverse
 
-
-
-
-# Create your views here.
-# @login_required
+@login_required
 def home(request):
   games = Game.objects.filter(user=request.user)
   return render(request, 'games/index.html', { 'games': games })
@@ -111,3 +108,8 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+class RevDelete(LoginRequiredMixin, DeleteView):
+  model = Review
+  def get_success_url(self):
+    return reverse('detail', kwargs={'game_id': self.object.game.id})

@@ -12,6 +12,7 @@ urlpatterns = [
     path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='games_update'),
     path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='games_delete'),
     path('games/<int:game_id>/reviews/', views.reviews_create, name='reviews_create'),
+    path('reviews/<int:pk>/delete/', views.RevDelete.as_view(), name='rev_delete'),
     path('accounts/signup/', views.signup, name='signup'),
     path('games/searchapi/', views.search, name='searchapi'),
     path('games/search/', views.search_view, name='search'),
