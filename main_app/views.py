@@ -62,6 +62,17 @@ class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
   success_url = '/games/'
 
+  # override the delete function to check for a user match
+  def delete(self, request, *args, **kwargs):
+      # the Post object
+      self.object = self.get_object()
+      if self.object.User == request.user:
+          success_url = self.get_success_url()
+          self.object.delete()
+          return http.HttpResponseRedirect(success_url)
+      else:
+          return http.HttpResponseForbidden("Cannot delete other's posts")
+
 @login_required
 def reviews_create(request, game_id):
   form = ReviewForm(request.POST)
