@@ -15,7 +15,7 @@ def home(request):
   return render(request, 'games/index.html', { 'games': games })
 
 def about(request):
-    return render(request, 'about.html')
+  return render(request, 'about.html')
 
 @login_required
 def games_index(request):
@@ -24,9 +24,9 @@ def games_index(request):
 
 @login_required
 def games_detail(request, game_id):
-    game = Game.objects.get(id=game_id)
-    review_form = ReviewForm()
-    return render(request, 'games/detail.html', { 'game': game, 'review_form': review_form })
+  game = Game.objects.get(id=game_id)
+  review_form = ReviewForm()
+  return render(request, 'games/detail.html', { 'game': game, 'review_form': review_form })
 
 
 def search(request):
@@ -61,6 +61,17 @@ class GameUpdate(LoginRequiredMixin, UpdateView):
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
   success_url = '/games/'
+
+  # override the delete function to check for a user match
+  def delete(self, request, *args, **kwargs):
+      # the Post object
+      self.object = self.get_object()
+      if self.object.User == request.user:
+          success_url = self.get_success_url()
+          self.object.delete()
+          return http.HttpResponseRedirect(success_url)
+      else:
+          return http.HttpResponseForbidden("Cannot delete other's posts")
 
 @login_required
 def reviews_create(request, game_id):
