@@ -11,7 +11,7 @@ from django.urls import  reverse_lazy, reverse
 
 @login_required
 def home(request):
-  games = Game.objects.filter(user=request.user)
+  games = Game.objects.all()
   return render(request, 'games/index.html', { 'games': games })
 
 def about(request):
@@ -19,7 +19,7 @@ def about(request):
 
 @login_required
 def games_index(request):
-    games = Game.objects.filter(user=request.user)
+    games = Game.objects.all()
     return render(request, 'games/index.html', { 'games': games })
 
 @login_required
