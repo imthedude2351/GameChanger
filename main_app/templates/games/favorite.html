@@ -9,7 +9,7 @@
   <h1>Favorite Games</h1>
 
   <main class="mainContainer container">
-    <div class="tablesc">
+    <div class="container tablesc">
       <table class="table">
         <thead class="thead-light">
           <tr>
@@ -20,10 +20,9 @@
                 <a href="{% url 'detail' fav.game.id %}">
                   <h5 class="text card-title">{{ fav.game.name }}</h5>
                   <p class="text card-text"> Developer: {{ fav.game.developer }}</p>
-                  <p class="text card-text"> ESRB: {{ fav.game.rated }}</p>
-                  <p class="text card-text"> Year: {{ fav.game.year }}</p>
+                  <p class="text card-text"> ESRB: {{ fav.game.rated }} | Year: {{ fav.game.year }}</p>
                 </a>
-                <a class="btn btn-dark mt-3" href="{% url 'favorite_create' fav.game.id %}">Delete</a>
+                <a class="btn btn-dark mt-3" href="{% url 'favorite_create' fav.game.id %}">Remove Favorite</a>
               </div>
             </div>
             {% endfor %}

@@ -1,0 +1,23 @@
+.whiteBox {
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+h1 {
+    margin: 15px 0;
+}
+
+tr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textStuff {
+    margin-bottom: 0;
+    background-color: rgba(255,255,255,.75);
+    border-radius: 10px;
+    color: black;
+    min-width: 100px;
+}

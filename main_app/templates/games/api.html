@@ -2,24 +2,23 @@
  {% load static %} 
  {% block content %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+<link rel="stylesheet" href="{% static 'css/api.css' %}" />
 
-<strong>Search for games</strong>
-{% for i in data%}
-<main  class="mainContainer container">
-  <div style="background-image: url({{i.background_image}});
-   background-size: contain;  " class="w-50 p-3 whiteBox container">
-    <br />
-    <!-- Leaving the action empty makes the form post to the same url used to display it -->
+<h1>List of Games:</h1>
+{% for i in data %}
+<main  class="mb-5 mainContainer container">
+  <div style="background-image: url({{i.background_image}});" class="w-50 p-3 whiteBox container">
     <form action="{% url 'games_create' %}" method="post">
-      <!-- Django requires the following for security purposes -->
       {% csrf_token %}
       <table>
-        <!-- Render the inputs inside of <tr>s & <td>s -->
         <tbody>
-          <tr>
-            <th><label for="id_name">Name:</label></th>
+          <tr class="mb-2">
+            <th>
+              <label class="textStuff" for="id_name">Name:</label>
+            </th>
             <td>
               <input
+                class="form-control"
                 type="text"
                 name="name"
                 maxlength="150"
@@ -28,10 +27,13 @@
               />
             </td>
           </tr>
-          <tr>
-            <th><label for="id_developer">Developer:</label></th>
+          <tr class="mb-2">
+            <th>
+              <label class="textStuff" for="id_developer">Developer:</label>
+            </th>
             <td>
               <input
+                class="form-control"
                 type="text"
                 name="developer"
                 maxlength="200"
@@ -40,10 +42,13 @@
               />
             </td>
           </tr>
-          <tr>
-            <th><label for="id_rated">Rated:</label></th>
+          <tr class="mb-2">
+            <th>
+              <label class="textStuff" for="id_rated">Rated:</label>
+            </th>
             <td>
               <input
+                class="form-control"
                 type="text"
                 name="rated"
                 maxlength="5"
@@ -54,9 +59,11 @@
             </td>
           </tr>
           <tr>
-            <th><label for="id_year">Year:</label></th>
+            <th>
+              <label class="textStuff" for="id_year">Year:</label>
+            </th>
             <td>
-              <input type="number" name="year" required value="{{i.released|slice:":4"}}" />
+              <input class="form-control" type="number" name="year" required value="{{i.released|slice:":4"}}" />
             </td>
           </tr>
           <tr>
@@ -69,7 +76,7 @@
         </tbody>
       </table>
       <br />
-      <input type="submit" value="Submit!" class="btn" />
+      <input type="submit" value="Submit!" class="btn btn-dark" />
       
     </form>
   </div>

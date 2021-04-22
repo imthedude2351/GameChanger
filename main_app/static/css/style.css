@@ -58,7 +58,11 @@ body {
 }
 
 .tablesc {
-  overflow:scroll;
-  height:750px;
-  width:500px;
+  overflow: scroll;
+  height: 750px;
+  max-width: 800px;
+}
+
+.right {
+  color: white;
 }
