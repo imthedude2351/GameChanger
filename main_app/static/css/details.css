@@ -38,6 +38,11 @@ form {
   border-radius: 20px;
 }
 
+.searchGame {
+  padding: 0px;
+  background:rgba(255,255,255, 0);
+}
+
 .review {
   display: flex;
   flex-direction: column;

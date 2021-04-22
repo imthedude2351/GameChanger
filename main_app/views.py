@@ -14,7 +14,8 @@ import requests
 # Create your views here.
 # @login_required
 def home(request):
-  return render(request, 'home.html')
+  games = Game.objects.filter(user=request.user)
+  return render(request, 'games/index.html', { 'games': games })
 
 def about(request):
     return render(request, 'about.html')

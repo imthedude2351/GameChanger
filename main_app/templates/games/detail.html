@@ -28,13 +28,10 @@
         <a class="btn btn-dark" href="{% url 'favorite_create' game.id %}"> Favorite Game</a> 
       {% endif %}
 
-
-      <!-- <a class="btn btn-dark" href="{% url 'favorite_create' game.id %}">Save Game</a> -->
     </div>
   </div>
 
   <div class="comments container">
-
     <div class="review container">
         <form method="post" action="{% url 'reviews_create' game.id %}">
           {% csrf_token %}
@@ -49,7 +46,6 @@
           <table class="table">
             <thead>
               <tr>
-                <!-- <th>Posted</th> -->
                 <th>Reviews</th>
                 <th class="ratingNumber">Rating</th>
               </tr>
@@ -57,7 +53,6 @@
             <tbody>
               {% for review in game.review_set.all %}
                 <tr>
-                  <!-- <td>{{review.date}}</td> -->
                   <td>{{review.review}}</td>
                   <td class="ratingNumber">{{review.rating}}</td>
                 </tr>
@@ -66,10 +61,9 @@
           </table>
         </div>
         {% endif %}
+
     </div>
   </div>
-
-    
 </main>
 
 {% endblock %}
