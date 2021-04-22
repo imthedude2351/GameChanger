@@ -55,6 +55,7 @@
                 <tr>
                   <td>{{review.review}}</td>
                   <td class="ratingNumber">{{review.rating}}</td>
+                  <td><a class="btn btn-dark" href="{% url 'rev_delete' review.id %}">Delete</a></td>
                 </tr>
               {% endfor %}
             </tbody>
