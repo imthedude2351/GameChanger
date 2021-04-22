@@ -15,18 +15,18 @@ def home(request):
   return render(request, 'games/index.html', { 'games': games })
 
 def about(request):
-    return render(request, 'about.html')
+  return render(request, 'about.html')
 
 @login_required
 def games_index(request):
-    games = Game.objects.all()
-    return render(request, 'games/index.html', { 'games': games })
+  games = Game.objects.all()
+  return render(request, 'games/index.html', { 'games': games })
 
 @login_required
 def games_detail(request, game_id):
-    game = Game.objects.get(id=game_id)
-    review_form = ReviewForm()
-    return render(request, 'games/detail.html', { 'game': game, 'review_form': review_form })
+  game = Game.objects.get(id=game_id)
+  review_form = ReviewForm()
+  return render(request, 'games/detail.html', { 'game': game, 'review_form': review_form })
 
 
 def search(request):
