@@ -9,34 +9,51 @@
         <h1>Add Game</h1>
         <br>
     {% endif %}
-  <!-- Leaving the action empty makes the form post to the same url used to display it -->
       <form action="" method="post">
-        <!-- Django requires the following for security purposes -->
         {% csrf_token %}
         <table>
-          <!-- Render the inputs inside of <tr>s & <td>s -->
             <form action="" method="post">
-              <!-- Django requires the following for security purposes -->
-              <input type="hidden" name="csrfmiddlewaretoken" value="HUeo8zjVEOIw4uaaoibgJumSvH1SviS9xgl3JkakfG0FWVAeImJ65zNJ8kBb5gOe">
-              <table>
-                <!-- Render the inputs inside of <tr>s & <td>s -->
-                <tbody><tr><th><label for="id_name">Name:</label></th><td><input type="text" name="name" maxlength="150" required="" id="id_name"></td></tr>
-              <tr><th><label for="id_developer">Developer:</label></th><td><input type="text" name="developer" maxlength="200" required="" id="id_developer"></td></tr>
-              <tr><th><label for="id_rated">Rated:</label></th><td><input type="text" name="rated" maxlength="5" required="" id="id_rated"></td></tr>
-              <tr><th><label for="id_year">Year:</label></th><td><input type="number" name="year" required="" id="id_year"></td></tr>
-              <tr><th><label for="id_user">User:</label></th><td><select name="user" required="" id="id_user">
-        <option value="" selected="">---------</option>
-      
-        <option value="1">urianmuro</option>
-      
-      </select></td></tr>
-              </tbody></table>
+              <input type="hidden" name="csrfmiddlewaretoken" value="HUeo8zjVEOIw4uaaoibgJumSvH1SviS9xgl3JkakfG0FWVAeImJ65zNJ8kBb5gOe"><table>
+                <tbody>
+                  <tr>
+                    <th>
+                      <label for="id_name">Name:</label>
+                    </th>
+                    <td>
+                      <input class="form-control mb-2 mr-sm-2" type="text" name="name" maxlength="150" required="" id="id_name">
+                    </td>
+                  </tr>
+              <tr>
+                <th>
+                  <label for="id_developer">Developer:</label>
+                </th>
+                <td>
+                  <input class="form-control mb-2 mr-sm-2" type="text" name="developer" maxlength="200" required="" id="id_developer">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="id_rated">ESRB:</label>
+                </th>
+                <td>
+                  <input class="form-control mb-2 mr-sm-2" type="text" name="rated" maxlength="5" required="" id="id_rated">
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="id_year">Year:</label>
+                </th>
+                <td>
+                  <input class="form-control mr-sm-2" type="number" name="year" required="" id="id_year">
+                </td>
+              </tr>
+          
+              </tbody>
+            </table>
               <br>
-              <input type="submit" value="Submit!" class="btn">
+              <input type="submit" value="Submit!" class="btn-dark btn">
             </form>
         </table>
-        <br>
-        <input type="submit" value="Submit!" class="btn">
       </form>
     </div>
   </main>

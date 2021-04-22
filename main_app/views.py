@@ -64,12 +64,6 @@ class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
   success_url = '/games/'
 
-
-class FavDelete(LoginRequiredMixin, DeleteView):
-  model = Favorite
-  success_url = '/games/favorite'
-
-
 @login_required
 def reviews_create(request, game_id):
   form = ReviewForm(request.POST)

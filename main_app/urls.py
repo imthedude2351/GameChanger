@@ -11,7 +11,6 @@ urlpatterns = [
     path('games/favorite/<int:game_id>/', views.favorite_create, name='favorite_create'),
     path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='games_update'),
     path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='games_delete'),
-    path('games/favorite/<int:pk>/delete/', views.FavDelete.as_view(), name='fav_delete'),
     path('games/<int:game_id>/reviews/', views.reviews_create, name='reviews_create'),
     path('accounts/signup/', views.signup, name='signup'),
     path('games/searchapi/', views.search, name='searchapi'),
