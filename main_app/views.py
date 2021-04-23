@@ -8,6 +8,7 @@ from .models import Game, Favorite, Review
 from .forms import ReviewForm
 import requests
 from django.urls import  reverse_lazy, reverse
+from django import http
 
 @login_required
 def home(request):
@@ -64,9 +65,10 @@ class GameDelete(LoginRequiredMixin, DeleteView):
 
   # override the delete function to check for a user match
   def delete(self, request, *args, **kwargs):
+      user = request.user
       # the Post object
       self.object = self.get_object()
-      if self.object.User == request.user:
+      if self.object.user == request.user:
           success_url = self.get_success_url()
           self.object.delete()
           return http.HttpResponseRedirect(success_url)
