@@ -18,6 +18,9 @@ Game Changers features an *All Games* page with a global list of games posted by
 ### [Heroku link](https://projectgame-changer.herokuapp.com/games/)
 ### [Trello board link](https://trello.com/b/36jVhT0D/game-changer)
 ## Next Steps: Planned future enhancements (icebox items).
+ + Make website more accessible
+ + Add user icons for comments/reviews
+ + Better styling 
 
 
 Message Erwin Medina, Khawar khan, Urian Muro (he/him)
