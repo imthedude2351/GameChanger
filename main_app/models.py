@@ -36,7 +36,6 @@ class Review(models.Model):
         choices=RATINGS,
         default=RATINGS[-1][-1]
     )
-
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
     def __str__(self):
