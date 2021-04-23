@@ -1,7 +1,7 @@
 # Game Changer : 
 Game changer is an application for gamers by gamers to help friends share and expand on each others game libraries and hopefully find your next game to change to.   
 # Screenshot(s): 
-A screenshot of your app's landing page and any other screenshots of interest.
+
 ![](https://imgur.com/Fhsyb8b.png)
 ![](https://imgur.com/zqYwi1u.png)
 ![](https://imgur.com/3CawPsH.png)
