@@ -57,7 +57,7 @@ class GameCreate(LoginRequiredMixin, CreateView):
 class GameUpdate(LoginRequiredMixin, UpdateView):
   model = Game
   # Let's disallow the renaming of a Game by excluding the name field!
-  fields = ['developer', 'rated', 'year']
+  fields = ['game', 'developer', 'rated', 'year']
 
 class GameDelete(LoginRequiredMixin, DeleteView):
   model = Game
