@@ -58,13 +58,17 @@
                 <tr>
                   <td>{{review.review}}</td>
                   <td class="ratingNumber">{{review.rating}}</td>
-                  <td><a class="btn btn-dark" href="{% url 'rev_delete' review.id %}">Delete</a></td>
+                  {% if comment.user_id == user_id %}
+                      <td><a class="btn btn-dark" href="{% url 'rev_delete' review.id %}">Delete</a></td>
+                  {% else %}
+                    <td></td>
+                  {% endif %}  
                 </tr>
               {% endfor %}
             </tbody>
           </table>
         </div>
-        {% endif %}
+      {% endif %}
 
     </div>
   </div>
